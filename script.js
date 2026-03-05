@@ -1,9 +1,9 @@
-const cidade = document.getElementById("cidade");
-const btnCity = document.getElementById("buscar-clima");
-const resultado = document.getElementById("resultado");
+const cityEl = document.getElementById("city");
+const btnCity = document.getElementById("btnCity");
+const cityOut = document.getElementById("cityOut");
 
 function showCity(obj) {
-resultado.textContent = typeof obj === "string" ? obj : JSON.stringify(obj, null, 2);
+cityOut.textContent = typeof obj === "string" ? obj : JSON.stringify(obj, null, 2);
 }
 
 async function geocodeCity(name) {
@@ -47,8 +47,3 @@ unidades: meteo.current_units
 showCity("Erro: " + err.message);
 }
 });
-
-// Preencher automaticamente ao abrir
-const last = localStorage.getItem("lastCity");
-if (last) cityEl.value = last;
-
